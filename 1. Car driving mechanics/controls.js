@@ -28,7 +28,7 @@ class Controls {
                     break;
             }
 
-            console.table(this);
+            // console.table(this);
         }
 
         // detects when we release the key
@@ -48,7 +48,7 @@ class Controls {
                     break;
             }
 
-            console.table(this);
+            // console.table(this);
         }
     }
 }
