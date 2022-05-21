@@ -1,5 +1,6 @@
 class Road{
-    constructor(x,width,laneCount=3){
+    constructor(x,width,laneCount=3){ // x is the center of the road
+        // these are attributes that we want the road to remember
         this.x=x;
         this.width=width;
         this.laneCount=laneCount;
@@ -7,9 +8,9 @@ class Road{
         this.left=x-width/2;
         this.right=x+width/2;
 
-        const infinity=1000000;
+        const infinity=1000000; // infinite upwards and downwards
         this.top=-infinity;
-        this.bottom=infinity;
+        this.bottom=infinity; // y on the computer grows downwards
 
         const topLeft={x:this.left,y:this.top};
         const topRight={x:this.right,y:this.top};
@@ -27,6 +28,7 @@ class Road{
             Math.min(laneIndex,this.laneCount-1)*laneWidth;
     }
 
+    // draws the road
     draw(ctx){
         ctx.lineWidth=5;
         ctx.strokeStyle="white";
