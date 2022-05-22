@@ -11,13 +11,13 @@ class Car{
         this.friction=0.05;
         this.angle=0;
 
-        this.sensor=new Sensor(this);
+        this.sensor=new Sensor(this); // instantiate sensor. Passing the car to 'this'.
         this.controls=new Controls();
     }
 
     update(roadBorders){
         this.#move();
-        this.sensor.update(roadBorders);
+        this.sensor.update(roadBorders); // update the sensor. Passing the road borders to the sensor allows us to use them in 'sensor.js'
     }
 
     #move(){
@@ -75,6 +75,6 @@ class Car{
 
         ctx.restore();
 
-        this.sensor.draw(ctx);
+        this.sensor.draw(ctx); // gives the car the ability to draw its own sensor.
     }
 }

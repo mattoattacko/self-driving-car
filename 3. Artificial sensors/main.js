@@ -8,7 +8,7 @@ const car=new Car(road.getLaneCenter(1),100,30,50);
 animate();
 
 function animate(){
-    car.update(road.borders);
+    car.update(road.borders); //sensor needs to know where the road borders are, so we pass 'road.borders' to the 'car.update' method.
 
     canvas.height=window.innerHeight;
 
