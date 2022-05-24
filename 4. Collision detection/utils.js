@@ -22,12 +22,17 @@ function getIntersection(A,B,C,D){
     return null;
 }
 
+
+// Checks for damage
+//loop through all the points in poly 1, and for each of them, we check all the of points in poly 2. We see if they touch using the getIntersection function. If they do, we check if the distance between the two points is less than the radius of the circle. If it is, we return true.
+//Explained at 1:19:00 in the video.
 function polysIntersect(poly1, poly2){
     for(let i=0;i<poly1.length;i++){
         for(let j=0;j<poly2.length;j++){
-            const touch=getIntersection(
+            const touch=getIntersection( 
+                //take one point in the first polygon, and the next point in the first polygon. We are making segments from one point after the other.  
                 poly1[i],
-                poly1[(i+1)%poly1.length],
+                poly1[(i+1)%poly1.length], //%modulo operator. If i is the last point in the polygon, we want to start from the first point. 
                 poly2[j],
                 poly2[(j+1)%poly2.length]
             );
@@ -36,5 +41,5 @@ function polysIntersect(poly1, poly2){
             }
         }
     }
-    return false;
+    return false; //if we get through the whole loop without returning true (everything is null), then we know that there is no intersection.
 }

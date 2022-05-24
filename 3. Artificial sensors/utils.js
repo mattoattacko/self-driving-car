@@ -2,7 +2,7 @@ function lerp(A, B, t) {
     return A + (B - A) * t;
 }
 
-// this function is explained in Radu Mariescu-Istodor's 'Segment intersection formula explained' video.
+// this function is explained in Radu Mariescu-Istodor's 'Segment intersection formula explained' video on YT.
 function getIntersection(A, B, C, D) {
     const tTop = (D.x - C.x) * (A.y - C.y) - (D.y - C.y) * (A.x - C.x);
     const uTop = (C.y - A.y) * (A.x - B.x) - (C.x - A.x) * (A.y - B.y);
@@ -10,7 +10,7 @@ function getIntersection(A, B, C, D) {
 
     if (bottom != 0) {
         const t = tTop / bottom;
-        const u = uTop / bottom;
+        const u = uTop / bottom; 
         if (t >= 0 && t <= 1 && u >= 0 && u <= 1) {
             return {
                 x: lerp(A.x, B.x, t),
