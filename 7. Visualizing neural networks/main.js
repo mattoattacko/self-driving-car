@@ -14,7 +14,7 @@ const traffic=[
 
 animate();
 
-function animate(time){
+function animate(time){ //the 'time' argument comes from the request animation frame method below. 
     for(let i=0;i<traffic.length;i++){
         traffic[i].update(road.borders,[]);
     }
