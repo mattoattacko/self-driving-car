@@ -8,27 +8,31 @@ const networkCtx = networkCanvas.getContext("2d");
 
 const road=new Road(carCanvas.width/2,carCanvas.width*0.9);
 
-const N=100;
+const N=100; //number of AI cars
 const cars=generateCars(N);
 let bestCar=cars[0];
+
+//for each car, it's brain will become equal to that from the local storage.
 if(localStorage.getItem("bestBrain")){
     for(let i=0;i<cars.length;i++){
         cars[i].brain=JSON.parse(
             localStorage.getItem("bestBrain"));
-        if(i!=0){
-            NeuralNetwork.mutate(cars[i].brain,0.1);
+        if(i!=0){ //the brain in localstorage is kept if i=0.
+            NeuralNetwork.mutate(cars[i].brain,0.1); //mutate the brain of the car by 10%
         }
     }
 }
 
 const traffic=[
-    new Car(road.getLaneCenter(1),-100,30,50,"DUMMY",2,getRandomColor()),
+    new Car(road.getLaneCenter(1),-100,30,50,"DUMMY",2,getRandomColor()), //change '-100' to change the cars distance from each other. 
     new Car(road.getLaneCenter(0),-300,30,50,"DUMMY",2,getRandomColor()),
     new Car(road.getLaneCenter(2),-300,30,50,"DUMMY",2,getRandomColor()),
     new Car(road.getLaneCenter(0),-500,30,50,"DUMMY",2,getRandomColor()),
     new Car(road.getLaneCenter(1),-500,30,50,"DUMMY",2,getRandomColor()),
     new Car(road.getLaneCenter(1),-700,30,50,"DUMMY",2,getRandomColor()),
     new Car(road.getLaneCenter(2),-700,30,50,"DUMMY",2,getRandomColor()),
+    new Car(road.getLaneCenter(0),-850,30,50,"DUMMY",2,getRandomColor()),
+    new Car(road.getLaneCenter(2),-850,30,50,"DUMMY",2,getRandomColor()),
 ];
 
 animate();
