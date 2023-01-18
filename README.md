@@ -1,6 +1,8 @@
 # Self-driving-car
 
 This project was built in association w/ Radu Mariescu-Istodor
+
+<img src="https://i.imgur.com/4INoqCi.png" />
   
 The code will appear as the course progresses and will be divided into parts as follows:
   1. Car driving mechanics
